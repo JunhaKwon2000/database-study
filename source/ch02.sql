@@ -203,3 +203,25 @@ SELECT * FROM burgers;
 
 -- burger 테이블을 삭제하는 쿼리는?
 DROP TABLE burgers;
+
+-- butgers 테이블 구조 확인
+DESC burgers;
+
+-- 전체 데이터 조회
+SELECT * FROM burgers;
+
+-- Quiz
+-- 3. 다음 설명에 대한 용어를 고르면? (입력 예: ㄱㄴㄷㄹㅁ)
+-- ① 테이블의 데이터를 수정하는 SQL 문
+-- ② 특정조건을 만족하는 튜플을 조회하는 SQL 문
+-- ③ 테이블의 데이터를 튜플 단위로 삭제하는 SQL 문
+-- ④ 테이블 자체를 삭제하는 SQL 문
+-- ⑤ 데이터베이스 자체를 삭제하는 SQL 문
+
+-- (ㄱ) DELETE 문
+-- (ᄂ) DROP TABLE 문
+-- (ᄃ) UPDATE 문
+-- (ᄅ) SELECT 문
+-- (ᄆ) DROP DATABASE 문
+
+-- 정답: (1) UPDATE, (2) SELECT, (3) DELETE, (4) DROP TABLE, (5) DROP DATABASE
