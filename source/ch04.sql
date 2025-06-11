@@ -184,6 +184,10 @@ SELECT MAX(amount), MIN(amount)
 FROM transactions
 WHERE msg = 'PayPal';
 
+SELECT id, msg, created_at, amount
+FROM transactions
+WHERE amount = (SELECT MAX(amount) FROM transactions);
+
 -- 전체 거래 횟수 세기
 SELECT COUNT(amount) FROM transactions;
 
