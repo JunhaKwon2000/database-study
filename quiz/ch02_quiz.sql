@@ -68,6 +68,6 @@ UPDATE employees SET salary = salary + 300000 WHERE department = '영업';
 -- 급여가 3,000,000원 이하인 직원을 삭제하세요.
 
 -- 정답:
-DELETE FROM employees WHERE salary <= 3000000;
+DELETE FROM employees WHERE salary <= 3200000;
 
 SET SQL_SAFE_UPDATES = 1;
