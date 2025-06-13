@@ -68,7 +68,7 @@ CREATE TABLE files (
 	file_data BLOB NOT NULL
 );
 
--- 정답: 파일, 이미지, 비디오 등등의 데이터를 저장하는데 적합함
+-- 정답: 파일, 이미지, 비디오 등등의 크기가 큰 데이터를 저장하는데 적합함
 
 
 -- 문제 7
@@ -80,7 +80,7 @@ CREATE TABLE measurements (
 	precise_value DOUBLE
 );
 
--- 정답: 둘다 부동소수점을 사용하며 FLOAT 보다 DOUBLE 이 약 2배 더 정확한 값을 저장한다(FLOAT 는 ~7 자리까지 정확, DOUBLE 는 ~ 15 자리까지 정확)
+-- 정답: 둘다 부동소수점을 사용하며 FLOAT(4Byte) 보다 DOUBLE(8Byte) 이 약 2배 더 정확한 값을 저장한다(FLOAT 는 ~7 자리까지 정확, DOUBLE 는 ~ 15 자리까지 정확)
 
 
 -- 문제 8
@@ -193,7 +193,7 @@ SELECT title, location FROM events WHERE title LIKE '%워크숍%';
 -- 이벤트 제목이 '데이터'로 시작하는 이벤트의 제목과 참석자 수를 조회하세요. 
 
 -- 정답:
-SELECt title, attendees FROM events WHERE title LIKE '데이터%';
+SELECT title, attendees FROM events WHERE title LIKE '데이터%';
 
 
 -- 문제 3
@@ -228,7 +228,7 @@ SELECT title, event_date FROM events WHERE YEAR(event_date) = 2023 AND MONTH(eve
 -- 시작 시간이 오전 11시 이후인(오전 11시 00분 포함) 이벤트의 제목과 시작 시간을 조회하세요.
 
 -- 정답:
-SELECT * FROM events WHERE (title LIKE '%컨퍼런스%' OR title LIKE '%컨트리뷰션%') AND HOUR(start_time) >= 11;
+SELECT title, start_time FROM events WHERE (title LIKE '%컨퍼런스%' OR title LIKE '%컨트리뷰션%') AND HOUR(start_time) >= 11;
 
 
 -- 문제 8
@@ -236,5 +236,4 @@ SELECT * FROM events WHERE (title LIKE '%컨퍼런스%' OR title LIKE '%컨트�
 -- 시작 시간이 오후 2시 이후인(오후 2시 00분 포함) 이벤트의 제목과 날짜, 시작 시간을 조회하세요.
 
 -- 정답: 
-SELECT * FROM events WHERE YEAR(event_date) = 2023 AND MONTH(event_date) IN (11, 12) AND HOUR(start_time) >= 14;
-
+SELECT * FROM events WHERE (event_date BETWEEN '2023-11-1' AND '2023-12-31') AND HOUR(start_time) >= 14;
